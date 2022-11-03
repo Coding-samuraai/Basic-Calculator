@@ -86,7 +86,10 @@ allButtons[it].addEventListener('click',onClick);
 function onClick(event)
 {
   let curr=event.target.innerText;
-
+  
+  if(curr==='x')
+    curr='*';
+  
   let text=onDisplay.innerText;
 
   if(curr==='RESET')
@@ -95,9 +98,9 @@ function onClick(event)
   onDisplay.innerText=text.slice(0,text.length-1);
   else if((curr>='0' && curr<='9') || (curr==='.'))
   onDisplay.innerText+=curr;
-  else if((curr==='+' || curr==='-' || curr==='/' || curr==='x'))
+  else if((curr==='+' || curr==='-' || curr==='/' || curr==='*'))
   {
-    if(text[text.length-1]==='+' || text[text.length-1]==='-' || text[text.length-1]==='/' || text[text.length-1]==='x')
+    if(text[text.length-1]==='+' || text[text.length-1]==='-' || text[text.length-1]==='/' || text[text.length-1]==='*')
     {
       text=text.slice(0,text.length-1);
       text+=curr;
